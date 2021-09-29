@@ -4,7 +4,7 @@ class Teacher {
     this.message = createElement("h3");
     this.secretWord = createElement("h3");
 
-    this.nameInput = createInput("").attribute("placeholder", "Nombre");
+    this.nameInput = createInput("").attribute("placeholder", "Name");
     this.greeting = createElement("h2");
     this.greeting2 = createElement("h3");
 
