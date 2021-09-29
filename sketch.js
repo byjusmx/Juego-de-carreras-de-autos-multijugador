@@ -47,10 +47,10 @@ function setup() {
   powerCoins = new Group();
   obstacles = new Group();
 
-  // Adding fuel sprite in the game
+  // Agregar el sprite combustible en el juego
   addSpirtes(fuels, 4, fuelImage, 0.02);
 
-  // Adding coin sprite in the game
+  // Agregar el sprite de la moneda en el juego
   addSpirtes(powerCoins, 18, powerCoinImage, 0.09);
 
   var obstaclesPositions = [
@@ -68,7 +68,7 @@ function setup() {
     { x: width / 2 - 180, y: height - 5500, image: obstacle2Image }
   ];
 
-  //Adding obstacle sprite in the game
+  // Agregar el sprite de obstáculos en el juego
   addSpirtes(
     obstacles,
     obstaclesPositions.length,
