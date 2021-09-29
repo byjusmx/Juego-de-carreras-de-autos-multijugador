@@ -24,12 +24,12 @@ class Game {
   }
 
   async start() {
-    // When user visit the page
+    // Cuando el usuario visita la página
     if (gameState === null) {
       welcome.display();
     }
 
-    // //When user loged in successfully
+    // Cuando el usuario inicia sesión exitosamente
     if (gameState === 0) {
       var playerCountRef = await db
         .ref(`users/${secret_word}/player_count/`)
@@ -89,11 +89,11 @@ class Game {
       background(backgroundImage);
       image(track, 0, -height * 5, width, height * 6);
 
-      //index of the array
+      //index para la array
       var index = 0;
 
       for (var plr in allPlayers) {
-        //add 1 to the index for every loop
+        //agrega 1 al index para cada bucle
         index = index + 1;
 
         var x = allPlayers[plr].positionX;
@@ -123,7 +123,7 @@ class Game {
             this.playerMoving = false;
           }
 
-          // Changing camera position in y direction
+          // Cambiar la posición de la camera en la dirección y
           camera.position.y = cars[index - 1].position.y;
         }
       }
@@ -133,10 +133,10 @@ class Game {
         player.update();
       }
 
-      // handling keyboard events
+      // manejo de eventos del teclado
       this.handlePlayerControls();
 
-      // Finshing Line
+      // meta final
       const finshLine = height * 6 - 100;
 
       if (player.positionY > finshLine) {
@@ -187,7 +187,7 @@ class Game {
       (players[0].rank === 0 && players[1].rank === 0) ||
       players[0].rank === 1
     ) {
-      // &emsp;    This tag is used for displaying four spaces.
+      // &emsp;    Esta etiqueta se usa para mostrar cuatro espacios.
       leader1 =
         players[0].rank +
         "&emsp;" +
@@ -224,15 +224,15 @@ class Game {
   }
 
   handleFuel(index) {
-    // Adding fuel
+    // Agregar gasolina
     cars[index - 1].overlap(fuels, function(collector, collected) {
       player.fuel = 185;
-      //collected is the sprite in the group collectibles that triggered
-      //the event
+      //collected es el sprite en el grupo de coleccionables que desencadenaron
+      //el evento
       collected.remove();
     });
 
-    // Reducing Player car fuel
+    // reducir el combustible del Jugador
     if (player.fuel > 0 && this.playerMoving) {
       player.fuel -= 0.3;
     }
@@ -248,8 +248,8 @@ class Game {
     cars[index - 1].overlap(powerCoins, function(collector, collected) {
       player.score += 21;
       player.update();
-      //collected is the sprite in the group collectibles that triggered
-      //the event
+      //collected es el sprite en el grupo de coleccionables que desencadenaron
+      //el evento
       collected.remove();
     });
   }
@@ -263,7 +263,7 @@ class Game {
           player.positionX -= 100;
         }
 
-        //Reducing Player Life
+        //reducir la vida del Jugador
         if (player.life > 0) {
           player.life -= 46.25;
         }
@@ -280,7 +280,7 @@ class Game {
           player.positionX -= 100;
         }
 
-        //Reducing Player Life
+        //reducir la vida del Jugador
         if (player.life > 0) {
           player.life -= 185 / 4;
         }
@@ -298,7 +298,7 @@ class Game {
         player.positionX -= 100;
       }
 
-      //Reducing Player Life
+      //reducir la vida del Jugador
       if (player.life > 0) {
         player.life -= 185 / 4;
       }
@@ -310,7 +310,7 @@ class Game {
   showRank() {
     swal({
       title: `Awesome!${"\n"}Rank${"\n"}${player.rank}`,
-      text: "You reached the finish line successfully",
+      text: "Llegaste a la meta con éxito",
       imageUrl:
         "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png",
       imageSize: "100x100",
@@ -320,16 +320,16 @@ class Game {
 
   gameOver() {
     swal({
-      title: `Game Over`,
-      text: "Oops you lost the race....!!!",
+      title: `Fin del Juego`,
+      text: "Oops perdiste la carrera...!!!",
       imageUrl:
         "https://cdn.shopify.com/s/files/1/1061/1924/products/Thumbs_Down_Sign_Emoji_Icon_ios10_grande.png",
       imageSize: "100x100",
-      confirmButtonText: "Thanks For Playing"
+      confirmButtonText: "Gracias por ugar"
     });
   }
 
   end() {
-    console.log("Game End!!!");
+    console.log("¡Fin del Juego!");
   }
 }
